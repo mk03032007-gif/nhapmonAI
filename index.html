@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>WebAR Mô Hình Ngựa - Hiro Marker</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  </head>
-  <body style="margin: 0px; overflow: hidden;">
-    
-    <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false;">
-      
-      <a-assets>
-        <a-asset-item id="horse-obj" src="10026_Horse_v01-it2.obj"></a-asset-item>
-        <a-asset-item id="horse-mtl" src="10026_Horse_v01-it2.mtl"></a-asset-item>
-      </a-assets>
-      
-      <a-marker preset="hiro">
-        <!-- Đã chỉnh lại scale to hơn một chút và đổi góc xoay -->
-        <a-obj-model 
-          src="#horse-obj" 
-          mtl="#horse-mtl" 
-          position="0 0 0" 
-          scale="0.1 0.1 0.1" 
-          rotation="0 0 0">
-        </a-obj-model>
-      </a-marker>
-      
-      <a-entity camera></a-entity>
-      
-    </a-scene>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>WebAR Horse Model</title>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
+<body style="margin: 0px; overflow: hidden;">
+
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+
+    <a-assets timeout="10000">
+      <a-asset-item id="horse-obj" src="10026_Horse_v01-it2.obj"></a-asset-item>
+      <a-asset-item id="horse-mtl" src="10026_Horse_v01-it2.mtl"></a-asset-item>
+    </a-assets>
+
+    <a-marker preset="hiro">
+      <!-- Điều chỉnh scale siêu nhỏ (0.002) để vừa vặn trên mã Hiro Marker từ 3ds Max -->
+      <a-obj-model 
+        src="#horse-obj" 
+        mtl="#horse-mtl" 
+        position="0 0 0" 
+        scale="0.002 0.002 0.002" 
+        rotation="-90 0 0">
+      </a-obj-model>
+    </a-marker>
+
+    <a-entity camera></a-entity>
+
+  </a-scene>
+
+</body>
 </html>
